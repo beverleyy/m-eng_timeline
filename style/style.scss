@@ -1,0 +1,246 @@
+// Variables
+$grid-background-color:             #0c0c0c;
+$grid-line-color:                   #00274c;
+$grid-width:                        120px;
+$timeline-events-no:                8;
+$timeline-events-line-height:       8px;
+$timeline-mths-no:                  13;
+
+body {
+	font: 12px/15px "Open Sans", sans-serif;
+	margin: 0;
+	padding: 0;
+	background: $grid-background-color;
+    background-image: linear-gradient(90deg, $grid-background-color 0, $grid-background-color $grid-width - 1, $grid-line-color $grid-width);
+	background-size: $grid-width $grid-width;
+}
+
+.tippy-box {
+	border-radius:0px;
+	letter-spacing:0px;
+	max-width:300px;
+	text-align:justify;
+	font: normal 8px/10px 'Open Sans', sans-serif;
+	text-transform:uppercase;
+	letter-spacing:5px;
+	background:#fff;
+	color:#0c0c0c;
+}
+
+.tippy-box[data-placement^='top'] > .tippy-arrow::before {
+	border-top-color:#fff;
+}
+
+h1 {
+	position: absolute;
+	top: 20px;
+	width: 100%;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	font: 300 36px "Oswald";
+}
+
+h1::after {
+	display: block;
+	content: "Periods include reporting";
+	font: normal 10px/12px "Open Sans",sans-serif;
+	color: #777777;
+	letter-spacing: 5px;
+}
+
+.timelines-mths {
+	position: absolute;
+	top: 300px;
+    padding: 0 0 0 $grid-width;
+	margin: 0;
+	white-space: nowrap;
+	border-top: 1px solid #282828;
+	list-style: none;
+	font-size: 0;
+}
+
+.timelines-mths .fill {
+	position: absolute;
+	top: -1px;
+	left: 0px;
+	width: 0px;
+	border-top: 1px solid #fff;
+	transition: 0.4s ease-in-out;
+}
+
+.timelines-mths li {
+	position: relative;
+	display: inline-block;
+	top: $timeline-events-line-height;	
+  	width: #{$grid-width * 2};
+	color: #777777;
+	font-size: 10px;
+	line-height: 12px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+}
+
+.timelines-mths li:last-child {
+	width: $grid-width;
+}
+
+.timeline-events {
+	position: absolute;
+	top: 180px;
+	padding: 0;
+	list-style: none;
+	white-space: nowrap;
+	font-size: 0;
+}
+
+.timeline-events h2,
+.timeline-events h3,
+.timeline-events h4 {
+	margin: 0 0 1px 0;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.timeline-events h2 {
+	color: #777;
+	text-transform: uppercase;
+}
+
+.timeline-events h4 {
+	color: #fff;
+	font-style: italic;
+}
+
+.timeline-events li {
+	position: relative;
+	display: inline-block;
+}
+
+.timeline-events li:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -36px;
+	height: $timeline-events-line-height;
+	border-radius: $timeline-events-line-height;
+	background: var(--col);
+}
+
+.timeline-events li h3 {
+	color: var(--col);
+}
+
+@for $i from 1 through $timeline-events-no {
+    .timeline-events li:nth-child(#{$i}) { 
+        bottom: #{((($timeline-events-line-height * 2) * $i)) - ($timeline-events-line-height * 2)};
+    }
+	.timeline-events li.timeline-event-legend:nth-child(#{$i}) span {
+		position: absolute;
+		left: 14px;
+		bottom: #{-120px - ((($timeline-events-line-height * 2) * $i)) - ($timeline-events-line-height * 2)};
+	}
+}
+
+.timeline-events li:nth-child(1) > h2,
+.timeline-events li:nth-child(1) > h3,
+.timeline-events li:nth-child(1) > h4 {
+	padding-left: $grid-width;
+}
+
+.timeline-events li:nth-child(1):before {
+    background: #c0ff33;
+    background-image: linear-gradient(left, $grid-background-color 0, #c0ff33 100%);
+    border-radius: 0 6px 6px 0;
+}
+
+.timeline-events li:nth-child(1) h3 {
+    color: #c0ff33;
+}
+
+.timeline-events li:last-child:before {
+    background: crimson;
+    background-image: linear-gradient(left, crimson 0, $grid-background-color 100%);
+    border-radius: 6px 0 0 6px;
+}
+
+.timeline-events li:last-child h3 {
+    color: crimson;
+}
+
+@for $i from 0 through $timeline-mths-no {
+    .timeline-event-mths-#{$i},
+    .timeline-event-mths-#{$i}:before {
+        width: #{$grid-width * $i};
+    }
+
+    .timeline-event-mths-#{$i}-5,
+    .timeline-event-mths-#{$i}-5:before {
+	      width: #{($grid-width * $i) + ($grid-width / 2)};
+    }
+}
+
+.timeline-event-legend {
+	position: relative;
+}
+
+.timeline-event-legend span h2,
+.timeline-event-legend span h3,
+.timeline-event-legend span h4 {
+	display: inline;
+	margin-right: 10px;
+}
+
+.timeline-event-legend i,
+.timelines-mths .fill i {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: #{$timeline-events-line-height / 2} solid transparent;
+	border-bottom-color: #fff;
+}
+
+.timeline-event-legend i:after,
+.timelines-mths .fill i:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+    border: #{$timeline-events-line-height / 2} solid transparent;
+	border-top-color: #fff;
+}
+
+.timeline-event-legend > i {
+	bottom: -32px;
+	right: -12px;
+}
+
+.timeline-event-legend > i:after {
+	left: -#{$timeline-events-line-height / 2};
+	bottom: -12px;
+}
+
+.timelines-mths i {
+	bottom: 0px;
+	right: -#{$timeline-events-line-height /2};
+}
+
+.timelines-mths i:after {
+	left: -#{$timeline-events-line-height / 2};
+	bottom: -12px;
+}
+
+.timeline-event-legend span > i {
+	top: 0px;
+	left: -14px;
+}
+
+.timeline-event-legend span > i:after {
+	left: -4px;
+	bottom: -12px;
+}
+
+.timeline-events li.timeline-event-legend:last-child > i {
+	margin-right: $grid-width;
+	right: 0;
+}
