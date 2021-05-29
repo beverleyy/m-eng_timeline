@@ -357,3 +357,49 @@ h1::after {
 .timeline-events li.timeline-event-legend:last-child > i {
   margin-right: 120px;
   right: 0; }
+
+@media screen and (min-height: 480px) {
+  .timeline-events {
+    top: 240px; }
+  .timelines-mths {
+    top: 360px; }
+  .timeline-events li.timeline-event-legend:nth-child(1) span {
+    bottom: -192px; }
+  .timeline-events li.timeline-event-legend:nth-child(2) span {
+    bottom: -208px; }
+  .timeline-events li.timeline-event-legend:nth-child(3) span {
+    bottom: -224px; }
+  .timeline-events li.timeline-event-legend:nth-child(4) span {
+    bottom: -240px; }
+  .timeline-events li.timeline-event-legend:nth-child(5) span {
+    bottom: -256px; }
+  .timeline-events li.timeline-event-legend:nth-child(6) span {
+    bottom: -272px; }
+  .timeline-events li.timeline-event-legend:nth-child(7) span {
+    bottom: -288px; }
+  .timeline-events li.timeline-event-legend:nth-child(8) span {
+    bottom: -304px; } }
+
+@media screen and (min-height: 720px) {
+  h1 {
+    top: 60px; }
+  .timeline-events {
+    top: 270px; }
+  .timelines-mths {
+    top: 420px; }
+  .timeline-events li.timeline-event-legend:nth-child(1) span {
+    bottom: -212px; }
+  .timeline-events li.timeline-event-legend:nth-child(2) span {
+    bottom: -228px; }
+  .timeline-events li.timeline-event-legend:nth-child(3) span {
+    bottom: -244px; }
+  .timeline-events li.timeline-event-legend:nth-child(4) span {
+    bottom: -260px; }
+  .timeline-events li.timeline-event-legend:nth-child(5) span {
+    bottom: -276px; }
+  .timeline-events li.timeline-event-legend:nth-child(6) span {
+    bottom: -292px; }
+  .timeline-events li.timeline-event-legend:nth-child(7) span {
+    bottom: -308px; }
+  .timeline-events li.timeline-event-legend:nth-child(8) span {
+    bottom: -324px; } }

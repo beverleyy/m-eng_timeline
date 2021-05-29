@@ -244,3 +244,39 @@ h1::after {
 	margin-right: $grid-width;
 	right: 0;
 }
+
+@media screen and (min-height:480px){
+    .timeline-events {
+        top: 240px;
+    }
+
+    .timelines-mths {
+        top: 360px;
+    }
+
+    @for $i from 1 through $timeline-events-no {
+        .timeline-events li.timeline-event-legend:nth-child(#{$i}) span {
+            bottom: #{-160px - ((($timeline-events-line-height * 2) * $i)) - ($timeline-events-line-height * 2)};
+        }
+    }
+}
+
+@media screen and (min-height:720px){
+    h1 {
+        top: 60px;
+    }
+
+    .timeline-events {
+        top: 270px;
+    }
+
+    .timelines-mths {
+        top: 420px;
+    }
+
+    @for $i from 1 through $timeline-events-no {
+        .timeline-events li.timeline-event-legend:nth-child(#{$i}) span {
+            bottom: #{-180px - ((($timeline-events-line-height * 2) * $i)) - ($timeline-events-line-height * 2)};
+        }
+    }
+}
