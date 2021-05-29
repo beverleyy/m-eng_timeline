@@ -6,6 +6,7 @@ $timeline-events-no:                8;
 $timeline-events-line-height:       8px;
 $timeline-mths-no:                  13;
 
+// Base
 body {
 	font: 12px/15px "Open Sans", sans-serif;
 	margin: 0;
@@ -13,22 +14,24 @@ body {
 	background: $grid-background-color;
 }
 
+// Tooltip
 .tippy-box {
-	border-radius:0px;
-	letter-spacing:0px;
-	max-width:300px;
-	text-align:justify;
+	border-radius: 0px;
+	letter-spacing: 0px;
+	max-width: 300px;
+	text-align: justify;
 	font: normal 8px/10px 'Open Sans', sans-serif;
-	text-transform:uppercase;
-	letter-spacing:5px;
-	background:#fff;
-	color:#0c0c0c;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	background: #fff;
+	color: #0c0c0c;
 }
 
 .tippy-box[data-placement^='top'] > .tippy-arrow::before {
-	border-top-color:#fff;
+	border-top-color: #fff;
 }
 
+// Container
 main {
 	position: relative;
 	width: 100vw;
@@ -41,6 +44,7 @@ main {
 	background-attachment: local;
 }
 
+// Title portion
 h1 {
 	position: absolute;
 	top: 20px;
@@ -58,24 +62,16 @@ h1 > span {
 	letter-spacing: 5px;
 }
 
+// Grid base portion (the month-line)
 .timelines-mths {
 	position: absolute;
 	top: 300px;
-    padding: 0 0 0 $grid-width;
+	padding: 0 0 0 $grid-width;
 	margin: 0;
 	white-space: nowrap;
 	border-top: 1px solid #282828;
 	list-style: none;
 	font-size: 0;
-}
-
-.timelines-mths .fill {
-	position: absolute;
-	top: -1px;
-	left: 0px;
-	width: 0px;
-	border-top: 1px solid #fff;
-	transition: 0.4s ease-in-out;
 }
 
 .timelines-mths li {
@@ -94,6 +90,17 @@ h1 > span {
 	width: $grid-width;
 }
 
+// The progress bar
+.timelines-mths .fill {
+	position: absolute;
+	top: -1px;
+	left: 0px;
+	width: 0px;
+	border-top: 1px solid #fff;
+	transition: 0.4s ease-in-out;
+}
+
+// Colored bars portion
 .timeline-events {
 	position: absolute;
 	top: 180px;
@@ -103,6 +110,22 @@ h1 > span {
 	font-size: 0;
 }
 
+.timeline-events li {
+	position: relative;
+	display: inline-block;
+}
+
+.timeline-events li:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -36px;
+	height: $timeline-events-line-height;
+	border-radius: $timeline-events-line-height;
+	background: var(--col);
+}
+
+// Titles of each bar
 .timeline-events h2,
 .timeline-events h3,
 .timeline-events h4 {
@@ -121,25 +144,11 @@ h1 > span {
 	font-style: italic;
 }
 
-.timeline-events li {
-	position: relative;
-	display: inline-block;
-}
-
-.timeline-events li:before {
-	content: '';
-	position: absolute;
-	left: 0;
-	bottom: -36px;
-	height: $timeline-events-line-height;
-	border-radius: $timeline-events-line-height;
-	background: var(--col);
-}
-
-.timeline-events li h3 {
+.timeline-events h3 {
 	color: var(--col);
 }
 
+// Step up each colored bar
 @for $i from 1 through $timeline-events-no {
     .timeline-events li:nth-child(#{$i}) { 
         bottom: #{((($timeline-events-line-height * 2) * $i)) - ($timeline-events-line-height * 2)};
@@ -151,12 +160,14 @@ h1 > span {
 	}
 }
 
+// Offset the first set of title from the left of screen
 .timeline-events li:nth-child(1) > h2,
 .timeline-events li:nth-child(1) > h3,
 .timeline-events li:nth-child(1) > h4 {
 	padding-left: $grid-width;
 }
 
+// Blend left side
 .timeline-events li:nth-child(1):before {
     background: #c0ff33;
     background-image: linear-gradient(to right, $grid-background-color 0, #c0ff33 100%);
@@ -167,6 +178,7 @@ h1 > span {
     color: #c0ff33;
 }
 
+// Blend right side
 .timeline-events li:last-child:before {
     background: crimson;
     background-image: linear-gradient(to right, crimson 0, $grid-background-color 100%);
@@ -177,6 +189,7 @@ h1 > span {
     color: crimson;
 }
 
+// Declare the width of each size of colored bar
 @for $i from 0 through $timeline-mths-no {
     .timeline-event-mths-#{$i},
     .timeline-event-mths-#{$i}:before {
@@ -189,6 +202,7 @@ h1 > span {
     }
 }
 
+// Code for diamond markers
 .timeline-event-legend {
 	position: relative;
 }
@@ -254,12 +268,14 @@ h1 > span {
 	right: 0;
 }
 
+// Make page responsive
 @media screen and (max-height:320px){
 	main {
 		overflow: scroll scroll;
 	}
 }
 
+// Increase and decrease padding accordingly
 @media screen and (max-height:360px){
 	h1 {
 		top: 0;
