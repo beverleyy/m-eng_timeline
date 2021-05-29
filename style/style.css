@@ -178,7 +178,7 @@ h1::after {
 
 .timeline-events li:nth-child(1):before {
   background: #c0ff33;
-  background-image: linear-gradient(left, #0c0c0c 0, #c0ff33 100%);
+  background-image: linear-gradient(to right, #0c0c0c 0, #c0ff33 100%);
   border-radius: 0 6px 6px 0; }
 
 .timeline-events li:nth-child(1) h3 {
@@ -186,7 +186,7 @@ h1::after {
 
 .timeline-events li:last-child:before {
   background: crimson;
-  background-image: linear-gradient(left, crimson 0, #0c0c0c 100%);
+  background-image: linear-gradient(to right, crimson 0, #0c0c0c 100%);
   border-radius: 6px 0 0 6px; }
 
 .timeline-events li:last-child h3 {
