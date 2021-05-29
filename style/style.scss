@@ -31,6 +31,14 @@ body {
 	border-top-color:#fff;
 }
 
+main {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	overflow: scroll hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
 h1 {
 	position: absolute;
 	top: 20px;
@@ -242,6 +250,32 @@ h1 > span {
 .timeline-events li.timeline-event-legend:last-child > i {
 	margin-right: $grid-width;
 	right: 0;
+}
+
+@media screen and (max-height:320px){
+	main {
+		overflow: scroll scroll;
+	}
+}
+
+@media screen and (max-height:360px){
+	h1 {
+		top: 0;
+	}
+
+	.timeline-events {
+		top: 120px;
+	}
+
+	.timelines-mths {
+		top: 240px;
+	}
+
+    @for $i from 1 through $timeline-events-no {
+        .timeline-events li.timeline-event-legend:nth-child(#{$i}) span {
+            bottom: #{-90px - ((($timeline-events-line-height * 2) * $i)) - ($timeline-events-line-height * 2)};
+        }
+    }
 }
 
 @media screen and (min-height:480px){
