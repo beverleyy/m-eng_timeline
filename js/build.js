@@ -1,5 +1,5 @@
 // Get the start and end dates, calculate time difference
-var startDate = new Date("15 May 2021"),
+var startDate = new Date("16 May 2021"),
 	endDate = new Date("15 June 2022"),
 	totalDiff = convertDays(endDate.getTime()-startDate.getTime());
 
@@ -8,9 +8,8 @@ var currentDate = new Date();
 var timeElapsed = convertDays(currentDate.getTime()-startDate.getTime());
 
 // Calculate fraction of program time elapsed
-// If fraction > 1, return 1
-var frac = timeElapsed/totalDiff;
-frac = (frac > 1) ? 1 : frac;
+// If timeElapsed > max time period, return 1
+var frac = (timeElapsed > totalDiff) ? 1 : timeElapsed/totalDiff;
 
 // Fill up the progress bar accordingly
 document.querySelectorAll(".fill")[0].style.width=frac*100+"%";
