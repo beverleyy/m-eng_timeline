@@ -1,6 +1,6 @@
 # M.Eng. Timeline
 
-Side project keeping track of my Masters timeline
+Basically made a timeline for my Masters degree progress cause I didn't really want a grainy pic of my prof's whiteboard as my homepage
 
 ## Credit
 
